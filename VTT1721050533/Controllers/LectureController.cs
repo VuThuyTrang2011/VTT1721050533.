@@ -78,7 +78,7 @@ namespace VTT1721050533.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entr(lecture).State = EntityState.Modified;
+                db.Entry(lecture).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

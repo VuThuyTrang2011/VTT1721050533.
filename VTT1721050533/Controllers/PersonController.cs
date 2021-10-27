@@ -13,11 +13,12 @@ namespace VTT1721050533.Controllers
         private QL db = new QL();
 
         public object EntityState { get; private set; }
+        public object Person { get; private set; }
 
         // GET: Person
         public ActionResult Index()
         {
-            return View(db.Persons.ToList());
+            return View(db.Person.ToList());
         }
        
         // GET: Person/Details/5
@@ -27,7 +28,7 @@ namespace VTT1721050533.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.Persons.Find(id);
+            Person person = db.Person.Find(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace VTT1721050533.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Persons.Add(person);
+                db.Person.Add(Person);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace VTT1721050533.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.Persons.Find(id);
+            Person person = db.Person.Find(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -73,7 +74,7 @@ namespace VTT1721050533.Controllers
             return View(person);
         }
 
-        // POST: people/Edit/5
+        // POST: Person/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -82,7 +83,7 @@ namespace VTT1721050533.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry( person).State = EntityState.Modified;
+                db.Entry(person).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -96,7 +97,7 @@ namespace VTT1721050533.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.Persons.Find(id);
+            Person person = db.Person.Find(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace VTT1721050533.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Person person = db.Persons.Find(id);
-            db.Persons.Remove(person);
+            Person person = db.Person.Find(id);
+            db.Person.Remove(person);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
