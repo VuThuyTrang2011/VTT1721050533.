@@ -10,7 +10,7 @@ namespace VTT1721050533.Models
         public QL() : base("name=QL")
         { 
         }
-        public DbSet<>
+       
         public DbSet<Lecture> Lectures { get; set; }
         public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<Student> Students { get; set; }
