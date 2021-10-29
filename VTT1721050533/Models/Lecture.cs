@@ -14,5 +14,6 @@ namespace VTT1721050533.Models
         [StringLength(50)]
         [Display(Name = "Phòng")]
         public string Department { get; set; }
+
     }
 }

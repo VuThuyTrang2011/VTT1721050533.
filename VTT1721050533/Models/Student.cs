@@ -15,5 +15,6 @@ namespace VTT1721050533.Models
         [StringLength(50)]
         [Display(Name = " Địa Chỉ ")]
         public string Address { get; set; }
+
     }
 }

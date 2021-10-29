@@ -13,6 +13,5 @@ namespace VTT1721050533.Models
         [Key]
         public string PersonID { get; set; }
         public string PersonName { get; set; }
-
     }
 }
